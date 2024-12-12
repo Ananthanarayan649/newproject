@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage(firststep) {
+        stage(shellscriptoutput1) {
             steps {
-                echo "the first stage is executed successfully"
+                sh 'uptime'
             }    
         }
-        stage(secondstep) {
+        stage(shellscriptoutput2) {
             steps {
-                echo "the second stage bis executed successfully"
+                sh 'uname -a'
             }
         }
     }
