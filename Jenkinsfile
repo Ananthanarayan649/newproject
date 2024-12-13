@@ -11,5 +11,11 @@ pipeline {
                 sh 'uname -a'
             }
         }
+        stage(cleanup) {
+            steps {
+                deleteDir()
+            }
+            
+        }
     }
 }
