@@ -11,6 +11,11 @@ pipeline {
                 sh 'uname -a'
             }
         }
+        stage(shellscriptoutput3) {
+            steps {
+                sh 'hostname'
+            }
+        }
         stage(cleanup) {
             steps {
                 deleteDir()
