@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage(dockerbuild) {
             steps {
-                sh 'docker build -t httpdimage . '
+                echo 'testing docker image '
             }
         }
         
