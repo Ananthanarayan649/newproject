@@ -2,13 +2,11 @@ pipeline {
     agent any 
 
     stages {
-        stage(dockerbuild) {
+        stage(dockerversion) {
             steps {
-                echo 'testing docker image '
+                sh 'docker version'
             }
         }
         
     }
-
-    
 }
