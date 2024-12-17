@@ -2,14 +2,9 @@ pipeline {
     agent any 
 
     stages {
-        stage(dockerlogin) {
+        stage(dockerbuild) {
             steps {
-                sh 'docker login -u ananthanarayan'
-            }
-        }
-        stage(dockerpull) {
-            steps {
-                sh 'docker pull httpd'
+                sh 'docker build -t httpdimage . '
             }
         }
         
