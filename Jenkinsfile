@@ -1,26 +1,24 @@
 pipeline {
-    agent any
+    agent any 
+
     stages {
-        stage(shellscriptoutput1) {
+        stage(dockerbuild) {
             steps {
-                sh 'uptime'
-            }    
-        }
-        stage(shellscriptoutput2) {
-            steps {
-                sh 'uname -a'
+                sh 'docker pull httpd'
             }
         }
-        stage(shellscriptoutput3) {
+        stage(dockerrun) {
             steps {
-                sh 'hostname'
+                sh 'docker container run -d -p 8080:80 --name=httpdcontainer httpd:latest'
             }
         }
-        stage(cleanup) {
+        stage(dockerexecute) {
             steps {
-                deleteDir()
+                sh 'docker container exec -it httpdcontainer /bin/bash '
+                sh 'curl localhost'
             }
-            
         }
     }
+
+    
 }
