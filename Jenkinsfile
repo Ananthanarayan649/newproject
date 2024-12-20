@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage(pythoncodeexample) {
             steps {
-               sh 'py arithmeticoperations.py'
+               sh 'python arithmeticoperations.py'
             }
         }
     }
