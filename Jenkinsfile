@@ -1,26 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage(shellscriptoutput1) {
+        stage(pythoncodeexample) {
             steps {
-                sh 'uptime'
-            }    
-        }
-        stage(shellscriptoutput2) {
-            steps {
-                sh 'uname -a'
+               sh 'py arithmeticoperations.py'
             }
-        }
-        stage(shellscriptoutput3) {
-            steps {
-                sh 'hostname'
-            }
-        }
-        stage(cleanup) {
-            steps {
-                deleteDir()
-            }
-            
         }
     }
 }
