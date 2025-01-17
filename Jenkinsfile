@@ -1,26 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage(shellscriptoutput1) {
+        stage(dockerbuild) {
             steps {
-                sh 'uptime'
-            }    
-        }
-        stage(shellscriptoutput2) {
-            steps {
-                sh 'uname -a'
+                sh 'docker image build -t apacheimage .'
             }
-        }
-        stage(shellscriptoutput3) {
-            steps {
-                sh 'hostname'
-            }
-        }
-        stage(cleanup) {
-            steps {
-                deleteDir()
-            }
-            
         }
     }
 }
